@@ -1,0 +1,32 @@
+{
+  "name": "electron-react",
+  "version": "1.0.0",
+  "description": "Electron application boilerplate based on React",
+  "main": "main.js",
+  "scripts": {
+    "preInstall": "npm install -g node-gyp",
+    "postInstall": "npm run compile",
+    "compile": "npm run compileF && npm run compileR",
+    "compileF": "node-gyp rebuild --directory=node_modules/ffi -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
+    "compileR": "node-gyp rebuild --directory=node_modules/ref -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "build": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out"
+  },
+  "repository": "https://github.com/dave-qiao/electron-react.git",
+  "keywords": [
+    "Electron",
+    "start",
+    "demo"
+  ],
+  "author": "dave-qiao",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-packager": "^12.1.0",
+    "electron-rebuild": "^1.7.3"
+  },
+  "dependencies": {
+    "ffi": "^2.2.0"
+  }
+}
