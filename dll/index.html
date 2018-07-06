@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>上海备战</title>
+  </head>
+  <style>
+    p {
+      text-align: center;
+      font-size: 30px;
+    }
+    p button {
+      margin-left: 30px;
+      text-align: center;
+    }
+    .content {
+      flex: 1;
+      justify-content: center;
+    }
+    .item {
+      flex: 1;
+    }
+  </style>
+  <script>
+      // var ffi = require('ffi');
+      // var ref = require('ref');
+      // var data = ref.types.byte;
+      // var type = ref.types.short;
+      // var array = ref.types.array;
+      // var DLL = new ffi.Library('64/Dapapi.dll', {
+      //     'AB_API_Open': ['int', []], // 打开控制器
+      //     'AB_API_Close': ['int', []], // 关闭控制器
+      //     'AB_GW_Cnt': ['int', []],
+      //     'AB_GW_Open': ['int', ['int']],
+      //     'AB_GW_Close': ['int', ['int']],
+      //     'AB_GW_Status': ['int', ['int']],
+      //     'AB_LB_DspNum': ['int', ['int', 'int', 'int', 'byte', 'short']],
+      //     'AB_GW_AllStatus': ['int', ['byte']]
+      // });
+      // function start() {
+      //     var result = DLL.AB_API_Open();
+      //     var gwResult0 = DLL.AB_GW_Open(0);
+      //     var gwResult1 = DLL.AB_GW_Open(1);
+      //     console.log("start", result, gwResult0, gwResult1);
+      // }
+      // function end() {
+      //     var result = DLL.AB_API_Close();
+      //     console.log("end", result);
+      // }
+      // function openTag() {
+      //     var dot = new Buffer(ref.sizeof.byte);
+      //     var type = new Buffer(ref.sizeof.short);
+      //     var result = DLL.AB_LB_DspNum(1, -1, 123, 0, 0);
+      //     DLL.AB_LB_DspNum(1, -3, 123, 0, 0);
+      //     console.log("open");
+      // }
+      // function AB_GW_Open() {
+      //     const result = DLL.AB_GW_Open(0);
+      //     console.log(result, 'AB_GW_Open');
+      // }
+      // function AB_GW_AllStatus() {
+      //     const data = new Buffer([0]);
+      //     console.log(data, 'data');
+      //     debugger;
+      //     const result = DLL.AB_GW_AllStatus(data);
+      //     console.log(result, 'AB_GW_AllStatus');
+      // }
+      // function AB_GW_Close() {
+      //     const result = DLL.AB_GW_Close(0);
+      //     console.log(result, 'AB_GW_Close');
+      // }
+      // function AB_GW_Status() {
+      //     const result1 = DLL.AB_GW_Status(1);
+      //     const result2 = DLL.AB_GW_Status(2);
+      //     console.log(result1, result2);
+      // }
+      // function testApi() {
+      //     const result = DLL.AB_GW_Close(0);
+      //     console.log(result, 'result');
+      // }
+  </script>
+  <body>
+    <h1>Das test</h1>
+    <!-- <div class="content">
+        <div class="item">
+            <button style="background: green;" onclick="start()">打开控制器</button>
+            <button style="background: green;" onclick="end()">关闭控制器</button>
+            <button onclick="openTag()">单个点亮</button>
+        </div>
+        <div class="item">
+            <button style="background: green;" onclick="testApi()">测试</button>
+        </div>
+        <div class="item">
+            <p>
+                <button style="background: green;" onclick="AB_GW_Open()">打开网关连接控制器</button>
+            </p>
+            <p>
+                <button style="background: green;" onclick="AB_GW_Close()">关闭网关断开连接</button>
+            </p>
+            <p>
+                <button style="background: green;" onclick="AB_GW_AllStatus()">检测所有网关状态</button>
+            </p>
+            <button style="background: green;" onclick="AB_GW_Status()">检测某一网关状态</button>
+            <button style="background: green;" onclick="testApi()">打开网关</button>
+            <button style="background: green;" onclick="testApi()">打开网关</button>
+            <button style="background: green;" onclick="testApi()">打开网关</button>
+        </div>
+    </div> -->
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
