@@ -35,7 +35,7 @@ export default merge.smart(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -45,10 +45,13 @@ export default merge.smart(baseConfig, {
               // Here, we include babel plugins that are only required for the
               // renderer process. The 'transform-*' plugins must be included
               // before react-hot-loader/babel
+              'transform-runtime',
+              'transform-decorators-legacy',
               'transform-class-properties',
               'transform-es2015-classes',
               'react-hot-loader/babel'
-            ]
+            ],
+            presets: ['es2015', 'stage-0', 'stage-1', 'react']
           }
         }
       },
