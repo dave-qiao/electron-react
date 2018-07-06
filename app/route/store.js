@@ -1,11 +1,7 @@
-import { observable, toJS, computed, action } from 'mobx';
+import { observable, action } from 'mobx';
 
 class Store {
   @observable name = 'test';
-
-  @computed get getPrintList() {
-    return toJS(this.tableList);
-  }
 
   @action.bound
   handleChangeName() {
@@ -16,7 +12,7 @@ class Store {
   @action
   async test() {
     console.log('异步');
-    return 100;
+    this.name = 'async';
   }
 
   *create() {

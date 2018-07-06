@@ -5,15 +5,15 @@ import store from './store';
 export default class Home extends Component {
   handleClick = () => {
     store.handleChangeName();
-  }
+  };
 
   handleTest = () => {
     store.test();
-  }
+  };
 
   handleAdd = () => {
     // store.add();
-  }
+  };
   render() {
     return (
       <div>
