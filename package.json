@@ -4,14 +4,61 @@
   "description": "Electron application boilerplate based on React",
   "main": "main.js",
   "scripts": {
-    "preInstall": "npm install -g node-gyp",
-    "postInstall": "npm run compile",
+    "preinstall": "npm install -g node-gyp",
+    "postinstall": "npm run compile",
     "compile": "npm run compileF && npm run compileR",
     "compileF": "node-gyp rebuild --directory=node_modules/ffi -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
     "compileR": "node-gyp rebuild --directory=node_modules/ref -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
     "start": "electron .",
-    "dev": "electron . --debug",
+    "dev": "npm run render",
+    "main": "cross-env HOT=1 NODE_ENV=development electron -r babel-register ./main.js",
+    "render": "cross-env START_HOT=1 NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config ./scripts/webpack.config.dev.js",
+    "eslint": "echo \"代码检测中...\" && eslint --cache --format=node_modules/eslint-formatter-pretty .",
+    "eslint-fix": "npm run --silent eslint -- --fix; exit 0",
+    "posteslint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.js'",
     "build": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out"
+  },
+  "build": {
+    "productName": "DPS",
+    "appId": "1.0.0",
+    "files": [
+      "dist/",
+      "node_modules/",
+      "app.html",
+      "main.prod.js",
+      "main.prod.js.map",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
   },
   "repository": "https://github.com/dave-qiao/electron-react.git",
   "keywords": [
@@ -24,9 +71,74 @@
   "devDependencies": {
     "electron": "^2.0.0",
     "electron-packager": "^12.1.0",
-    "electron-rebuild": "^1.7.3"
+    "electron-rebuild": "^1.7.3",
+    "electron-devtools-installer": "^2.2.4",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-flow-runtime": "^0.17.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "uglifyjs-webpack-plugin": "1.2.5",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.8.3",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-formatter-pretty": "^1.3.0",
+    "eslint-import-resolver-webpack": "^0.10.0",
+    "eslint-plugin-compat": "^2.2.0",
+    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.15.2",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.8.2",
+    "prettier": "^1.12.1",
+    "react-hot-loader": "^4.2.0",
+    "css-loader": "^0.28.11",
+    "less-loader": "3.x",
+    "sass-loader": "4.x",
+    "chalk": "^2.4.1",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.6",
+    "cross-spawn": "^6.0.5",
+    "detect-port": "^1.2.3",
+    "pre-push": "^0.1.1"
   },
+  "pre-push": [
+    "eslint"
+  ],
   "dependencies": {
-    "ffi": "^2.2.0"
+    "ffi": "^2.2.0",
+    "electron-debug": "^1.5.0",
+    "history": "^4.7.2",
+    "js-cookie": "2.1.4",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "lodash": "4.17.4",
+    "mobx": "3.1.9",
+    "mobx-react": "4.1.8",
+    "source-map-support": "^0.5.6"
+  },
+  "devEngines": {
+    "node": ">=7.x",
+    "npm": ">=4.x",
+    "yarn": ">=0.21.3"
   }
 }
