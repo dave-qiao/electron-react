@@ -4,7 +4,6 @@ import fs from 'fs';
 import { dependencies as possibleExternals } from '../package.json';
 
 function filterDepWithoutEntryPoints(dep) {
-  console.log(3);
   try {
     if (
       fs.existsSync(path.join(__dirname, `../node_modules/${dep}/index.js`))
@@ -22,7 +21,7 @@ function filterDepWithoutEntryPoints(dep) {
     return true;
   }
 }
-console.log(2);
+
 export default {
   externals: [
     ...Object.keys(possibleExternals || {}).filter(filterDepWithoutEntryPoints)

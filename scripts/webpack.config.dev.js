@@ -12,7 +12,7 @@ CheckNodeEnv('development');
 
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
-console.log(1);
+
 export default merge.smart(baseConfig, {
   devtool: 'inline-source-map',
 
