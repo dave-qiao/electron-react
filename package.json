@@ -7,16 +7,19 @@
     "preinstall": "npm install -g node-gyp",
     "postinstall": "npm run compile",
     "compile": "npm run compileF && npm run compileR",
-    "compileF": "node-gyp rebuild --directory=node_modules/ffi -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
-    "compileR": "node-gyp rebuild --directory=node_modules/ref -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
-    "start": "electron .",
+    "compileF": "node-gyp rebuild --directory=./node_modules/ffi -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
+    "compileR": "node-gyp rebuild --directory=./node_modules/ref -target=2.0.0 -arch=x64 -dist-url=https://atom.io/download/atom-shell",
+    "start": "npm run render",
     "dev": "npm run render",
     "main": "cross-env HOT=1 NODE_ENV=development electron -r babel-register ./main.js",
     "render": "cross-env START_HOT=1 NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config ./scripts/webpack.config.dev.js",
     "eslint": "echo \"代码检测中...\" && eslint --cache --format=node_modules/eslint-formatter-pretty .",
     "eslint-fix": "npm run --silent eslint -- --fix; exit 0",
     "posteslint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.js'",
-    "build": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out"
+    "build": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out",
+    "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config ./scripts/webpack.config.main.prod.js --colors",
+    "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config ./scripts/webpack.config.render.prod.js --colors",
+    "build-all": "concurrently \"npm run build-main\" \"npm run build-renderer\""
   },
   "build": {
     "productName": "DPS",
