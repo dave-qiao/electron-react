@@ -1,0 +1,30 @@
+directories:
+  output: release
+  buildResources: resources
+productName: DPS
+appId: 1.0.0
+asar: false
+files:
+  - dist/
+  - node_modules/
+  - app.html
+  - main.prod.js
+  - main.prod.js.map
+  - package.json
+dmg:
+  contents:
+    - x: 130
+      'y': 220
+    - x: 410
+      'y': 220
+      type: link
+      path: /Applications
+win:
+  target:
+    - nsis
+linux:
+  target:
+    - deb
+    - AppImage
+  category: Development
+electronVersion: 2.0.4
