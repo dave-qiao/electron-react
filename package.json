@@ -2,7 +2,7 @@
   "name": "electron-react",
   "version": "1.0.0",
   "description": "Electron application boilerplate based on React",
-  "main": "main.js",
+  "main": "./dist/main.prod.js",
   "scripts": {
     "preinstall": "npm install -g node-gyp",
     "postinstall": "npm run compile",
@@ -16,14 +16,16 @@
     "eslint": "echo \"代码检测中...\" && eslint --cache --format=node_modules/eslint-formatter-pretty .",
     "eslint-fix": "npm run --silent eslint -- --fix; exit 0",
     "posteslint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.js'",
-    "build": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out",
     "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config ./scripts/webpack.config.main.prod.js --colors",
     "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config ./scripts/webpack.config.render.prod.js --colors",
-    "build-all": "concurrently \"npm run build-main\" \"npm run build-renderer\""
+    "build-all": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
+    "package-win": "npm run build && build --win --x64",
+    "package-all": "npm run build-all && electron-builder -mwl"
   },
   "build": {
     "productName": "DPS",
     "appId": "1.0.0",
+    "asar": false,
     "files": [
       "dist/",
       "node_modules/",
@@ -69,7 +71,10 @@
     "start",
     "demo"
   ],
-  "author": "dave-qiao",
+  "author": {
+    "name": "dave-qiao",
+    "email": "dave.joe.china@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -97,8 +102,7 @@
     "detect-port": "^1.2.3",
     "electron": "^2.0.0",
     "electron-devtools-installer": "^2.2.4",
-    "electron-packager": "^12.1.0",
-    "electron-rebuild": "^1.7.3",
+    "electron-builder": "^20.14.7",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
