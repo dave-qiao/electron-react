@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
 
 let mainWindow = null;
-console.log('main');
+
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
@@ -52,7 +52,11 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+if (process.env.NODE_ENV !== 'development') {
+  mainWindow.loadURL(`file://${__dirname}/../app.html`);
+} else{
+  mainWindow.loadURL(`file://${__dirname}/app.html`);  
+}
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
