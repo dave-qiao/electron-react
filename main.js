@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== 'development') {
       throw new Error('"mainWindow" is not defined');
     }
     mainWindow.show();
-    mainWindow.focus();
+    // mainWindow.focus();
   });
 
   mainWindow.on('closed', () => {
