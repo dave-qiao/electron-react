@@ -38,6 +38,13 @@ export default {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader'
+        }
       }
     ]
   },
@@ -48,7 +55,7 @@ export default {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.ts'],
     modules: [path.join(__dirname, 'app'), 'node_modules']
   },
 
