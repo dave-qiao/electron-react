@@ -1,4 +1,5 @@
 import { app, Menu, shell } from 'electron';
+import updateController from './scripts/update';
 
 export default class MenuBuilder {
   constructor(mainWindow) {
@@ -47,6 +48,13 @@ export default class MenuBuilder {
         {
           label: 'About WCS',
           selector: 'orderFrontStandardAboutPanel:'
+        },
+        {
+          label: '检查更新',
+          selector: 'orderFrontStandardAboutPanel:',
+          click: () => {
+            updateController.checkForUpdates();
+          }
         },
         { type: 'separator' },
         { label: 'Services', submenu: [] },
