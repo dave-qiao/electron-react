@@ -1,10 +1,10 @@
 version: 1.0.0
 files:
-  - url: DPS-1.0.0-mac.zip
-    sha512: 91kW0WyJWpTfD9erPWP/bxEddXtAjo/XN2LW3vOKKMgtM99A36/iNSeK6Y8uGCUpCJRvWeo+36UzPtAU00YPuw==
-  - url: DPS-1.0.0.dmg
-    sha512: pnOH16lEd1s+m9RExiYkFeeqRaxHOaSvEA0xbCUb02yb/3tzbtFILQy0cFQOH1XjO8Y6I2PXgr8vmFu8eoTz6A==
-    size: 51814563
-path: DPS-1.0.0-mac.zip
-sha512: 91kW0WyJWpTfD9erPWP/bxEddXtAjo/XN2LW3vOKKMgtM99A36/iNSeK6Y8uGCUpCJRvWeo+36UzPtAU00YPuw==
-releaseDate: '2018-07-10T04:19:09.970Z'
+  - url: WCS-1.0.0-mac.zip
+    sha512: r+Ij7BOyx2JsMNol1trv0P6JoyIv82S2f+FrbGH0L4+HrbIV1LvLCurRFOwzNbis/reLqb2vgKXCRurj3FvQ1w==
+  - url: WCS-1.0.0.dmg
+    sha512: 6MPy4gT4FuVANobtdhXixsN3hN9bLA4HXtavJLV+A48i9N0WVPoB61jVBDAbaktGuCyxGIKeOEESiz3SnO4TvA==
+    size: 52733640
+path: WCS-1.0.0-mac.zip
+sha512: r+Ij7BOyx2JsMNol1trv0P6JoyIv82S2f+FrbGH0L4+HrbIV1LvLCurRFOwzNbis/reLqb2vgKXCRurj3FvQ1w==
+releaseDate: '2018-07-16T05:54:36.772Z'

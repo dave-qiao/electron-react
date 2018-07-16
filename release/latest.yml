@@ -1,9 +1,9 @@
 version: 1.0.0
 files:
   - url: electron-react-setup-1.0.0.exe
-    sha512: Y5hA3B2w/nNC5h6W/m7ZVpNG9iSg193o4jYb2eqYaFJNBHUjDwv7KNCw+67E2h0mRv2lbJRQ5StphkbQ0k/afA==
-    size: 40318940
+    sha512: nb51Izg4JRUrWbdPuE1e0kw9t8ESTQvIeMtW0k0d4quUr/0rj16+57kd6FC9s1oXvYS4k3ywqTnXLP0iOZuIbw==
+    size: 41183342
 path: electron-react-setup-1.0.0.exe
-sha512: Y5hA3B2w/nNC5h6W/m7ZVpNG9iSg193o4jYb2eqYaFJNBHUjDwv7KNCw+67E2h0mRv2lbJRQ5StphkbQ0k/afA==
-sha2: 71b98a954b3a569e4d5ba05f2d7667a0fbd754cb1cd273f46c39c4c8b769aa52
-releaseDate: '2018-07-10T04:19:09.970Z'
+sha512: nb51Izg4JRUrWbdPuE1e0kw9t8ESTQvIeMtW0k0d4quUr/0rj16+57kd6FC9s1oXvYS4k3ywqTnXLP0iOZuIbw==
+sha2: d5ec887f9c023bf19a5d487b404e6b92f3579a591c0e6e46ad69294dfe6ab7f1
+releaseDate: '2018-07-16T05:54:36.772Z'

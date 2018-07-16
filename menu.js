@@ -1,5 +1,6 @@
 import { app, Menu, shell } from 'electron';
 import updateController from './scripts/update';
+import updateHelper from './app/common/update.ts';
 
 export default class MenuBuilder {
   constructor(mainWindow) {
@@ -53,7 +54,10 @@ export default class MenuBuilder {
           label: '检查更新',
           selector: 'orderFrontStandardAboutPanel:',
           click: () => {
-            updateController.checkForUpdates();
+            const result = updateController.checkForUpdates();
+            // const result = new updateHelper();
+            // result.test();
+            console.log(result, 'result');
           }
         },
         { type: 'separator' },

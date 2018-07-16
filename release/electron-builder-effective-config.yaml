@@ -1,7 +1,7 @@
 directories:
   output: release
   buildResources: resources
-productName: DPS
+productName: WCS
 appId: 1.0.0
 asar: false
 files:
@@ -11,6 +11,9 @@ files:
   - main.prod.js
   - main.prod.js.map
   - package.json
+publish:
+  - provider: github
+    repo: 'https://github.com/dave-qiao/electron-react'
 dmg:
   contents:
     - x: 130
