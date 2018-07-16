@@ -21,10 +21,10 @@ const styles = {
   greenBG: ['\x1B[42m', '\x1B[49m'],
   magentaBG: ['\x1B[45m', '\x1B[49m'],
   redBG: ['\x1B[41m', '\x1B[49m'],
-  yellowBG: ['\x1B[43m', '\x1B[49m'],
+  yellowBG: ['\x1B[43m', '\x1B[49m']
 };
 
-Object.keys(styles).forEach((style) => {
+Object.keys(styles).forEach(style => {
   /* eslint-disable no-underscore-dangle */
   String.prototype.__defineGetter__(style, function stringColor() {
     const [pre, post] = styles[style];

@@ -1,4 +1,3 @@
-
 require('./color');
 
 const { stdin, stdout } = process;
@@ -36,19 +35,20 @@ module.exports = (questions, callback) => {
   stdin.resume();
   stdin.setEncoding('utf8');
 
-  stdin.on('data', (chunk) => {
-    chunk = chunk.replace(/[\s\n]/, '');
+  stdin.on('data', chunk => {
+    let chunks = null;
+    chunks = chunk.replace(/[\s\n]/, '');
 
-    result[q.name] = chunk || q.default;
+    result[q.name] = chunks || q.default;
 
     if (Array.isArray(q.options)) {
-      result[q.name] = q.options[chunk - 1];
+      result[q.name] = q.options[chunks - 1];
     }
 
     const { validate } = questions[i];
 
     if (typeof validate === 'function') {
-      const val = validate(chunk);
+      const val = validate(chunks);
       if (val !== true) {
         stdout.write(`✘ ${val}，请重新输入\n`.red);
         i -= 1;
